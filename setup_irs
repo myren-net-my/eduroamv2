@@ -34,6 +34,6 @@ ln -s -f $VAR_INSTALL_PATH/etc/raddb/sites-available/eduroam $VAR_INSTALL_PATH/e
 ln -s -f $VAR_INSTALL_PATH/etc/raddb/mods-available/f_ticks $VAR_INSTALL_PATH/etc/raddb/mods-enabled/f_ticks
 
 #install ca root certificate
-wget http://sifulan.my/download/tls-ca-bundle.pem -O $VAR_INSTALL_PATH/etc/raddb/certs/tls-ca-bundle.pem
+cp ca-letsencrypt.pem $VAR_INSTALL_PATH/etc/raddb/certs/ca-letsencrypt.pem
 
 echo -e "\ndone!!!"
