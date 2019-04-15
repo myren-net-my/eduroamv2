@@ -254,7 +254,7 @@ tls {
 	certdir = ${confdir}/certs
 	private_key_file = PRIV_KEY_FILE
 	certificate_file = PUBLIC_KEY_FILE
-	ca_file = ${certdir}/tls-ca-bundle.pem
+	ca_file = ${certdir}/ca-letsencrypt.pem
 	dh_file = ${certdir}/dh
 	random_file = /dev/urandom
 	fragment_size = 1024
