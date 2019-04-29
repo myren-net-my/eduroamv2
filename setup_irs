@@ -3,7 +3,7 @@
 echo  "======= Setup .my Institution Radius Server (IRS) configuration ======="
 echo -n "1) Input your reaml (e.g. 'poli.edu.my) : "
 read VAR_REALM
-echo -n "2) Input your secret key (e.g. 'eduroamkey') : "
+echo -n "2) Input your secret key (e.g. 'myr3n') : "
 read VAR_SECRET_KEY
 echo -n "3) Input your Freeradius 3 installation directory (e.g. '/opt/freeradius') : "
 read VAR_INSTALL_PATH
