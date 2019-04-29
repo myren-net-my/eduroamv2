@@ -49,25 +49,33 @@ realm YOUR_REALM {
       secret    = EDUROAM_SECRET
       strip
 }
- 
-# Radius-Proxy Server of National Roaming Operator
+
+# Radius-Proxy Server of National Roaming Operator lab testing
 home_server flr1 {
-        ipaddr                  = 150.129.185.31
+        ipaddr                  = 203.80.16.18
         port                     = 1812
         secret                  = EDUROAM_SECRET
         status_check         = status-server
 }
-home_server flr2 {
-        ipaddr                  = 119.40.121.26
-        port                     = 1812
-        secret                  = EDUROAM_SECRET
-        status_check         = status-server
-}
+
+# Radius-Proxy Server of National Roaming Operator
+#home_server flr1 {
+#        ipaddr                  = 150.129.185.31
+#        port                     = 1812
+#        secret                  = EDUROAM_SECRET
+#        status_check         = status-server
+#}
+#home_server flr2 {
+#        ipaddr                  = 119.40.121.26
+#        port                     = 1812
+#        secret                  = EDUROAM_SECRET
+#        status_check         = status-server
+#}
  
 home_server_pool eduroam {
         type                         = fail-over
         home_server             = flr1
-        home_server		= flr2
+#        home_server		= flr2
         nostrip
 }
  
