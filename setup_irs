@@ -1,15 +1,15 @@
 #!/bin/bash
 
 echo  "======= Setup .my Institution Radius Server (IRS) configuration ======="
-echo -n "1) Input your reaml (e.g. 'poli.edu.my) : "
+echo -n "1) Input your reaml (e.g. 'usm.my) : "
 read VAR_REALM
 echo -n "2) Input your secret key (e.g. 'y0uRs3cr3t') : "
 read VAR_SECRET_KEY
-echo -n "3) Input your Freeradius 3 installation directory (e.g. '/opt/freeradius') : "
+echo -n "3) Input your Freeradius 3 installation directory (left blank) : "
 read VAR_INSTALL_PATH
-echo -n "4) Input your host certificate private key file (e.g. '/etc/letsencrypt/live/idp.XXXX.edu.my/privkey.pem') : "
+echo -n "4) Input your host certificate private key file (e.g. '/etc/letsencrypt/live/idp.usm.my/privkey.pem') : "
 read PRIV_KEY_FILE
-echo -n "5) Input your host certificate public key file (e.g. '/etc/letsencrypt/live/idp.XXXX.edu.my/cert.pem') : "
+echo -n "5) Input your host certificate public key file (e.g. '/etc/letsencrypt/live/idp.usm.my/cert.pem') : "
 read PUBLIC_KEY_FILE
 
 echo -e "\nConfiguring clients.conf script....\n"
