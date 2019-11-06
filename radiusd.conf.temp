@@ -1,6 +1,6 @@
 # -*- text -*-
 ##
-## radiusd.conf	-- FreeRADIUS server configuration file - 3.0.10
+## radiusd.conf	-- FreeRADIUS server configuration file - 3.0.13
 ##
 ##	http://www.freeradius.org/
 ##	$Id: c62f4ffed53a073a885f243b728129f5c482fad7 $
@@ -50,11 +50,11 @@
 #	if / else policies.  See "man unlang" for details.
 #
 
-prefix = VAR_INSTALL_PATH
-exec_prefix = ${prefix}
-sysconfdir = ${prefix}/etc
-localstatedir = ${prefix}/var
-sbindir = ${exec_prefix}/sbin
+prefix = /usr
+exec_prefix = /usr
+sysconfdir = /etc
+localstatedir = /var
+sbindir = /usr/sbin
 logdir = ${localstatedir}/log/radius
 raddbdir = ${sysconfdir}/raddb
 radacctdir = ${logdir}/radacct
@@ -70,8 +70,7 @@ certdir = ${confdir}/certs
 cadir   = ${confdir}/certs
 run_dir = ${localstatedir}/run/${name}
 
-# Should likely be ${localstatedir}/lib/radiusd
-db_dir = ${raddbdir}
+db_dir = ${localstatedir}/lib/radiusd
 
 #
 # libdir: Where to find the rlm_* modules.
@@ -105,7 +104,7 @@ db_dir = ${raddbdir}
 #	make
 #	make install
 #
-libdir = /usr/lib/freeradius
+libdir = /usr/lib64/freeradius
 
 #  pidfile: Where to place the PID of the RADIUS server.
 #
@@ -262,7 +261,6 @@ tls {
 	check_crl = no
 	cipher_list = "DEFAULT"
 }
-
 
 #
 #  Logging section.  The various "log_*" configuration items
@@ -451,8 +449,8 @@ security {
 	#  member.  This can allow for some finer-grained access
 	#  controls.
 	#
-	#user = freerad
-	#group = freerad
+	user = radiusd
+	group = radiusd
 
 	#  Core dumps are a bad thing.  This should only be set to
 	#  'yes' if you're debugging a problem with the server.
@@ -514,7 +512,6 @@ security {
 	#
 	status_server = yes
 
-	allow_vulnerable_openssl = yes
 
 }
 
