@@ -51,27 +51,28 @@ realm YOUR_REALM {
 }
 
 # Radius-Proxy Server of National Roaming Operator
-home_server flr1 {
-        ipaddr                  = 150.129.185.31
-        port                     = 1812
-        secret                  = EDUROAM_SECRET
-        status_check         = status-server
+home_server nro1.eduroam.my {
+        ipaddr = nro1.eduroam.my
+        secret = EDUROAM_SECRET
+        status_check = status-server
+        response_window = 5
+        check_interval = 10
+        check_timeout = 5
 }
-home_server flr2 {
-        ipaddr                  = 119.40.121.26
-        port                     = 1812
-        secret                  = EDUROAM_SECRET
-        status_check         = status-server
+home_server nro2.eduroam.my {
+        ipaddr = nro2.eduroam.my
+        secret = EDUROAM_SECRET
+        status_check = status-server
+        response_window = 5
+        check_interval = 10
+        check_timeout = 5
 }
- 
-home_server_pool eduroam {
-        type                         = fail-over
-        home_server             = flr1
-        home_server		= flr2
-        nostrip
+home_server_pool eduroam_flr_pool {
+        type = keyed-balance
+        home_server = nro1.eduroam.my
+        home_server = nro2.eduroam.my
 }
- 
-realm "~.+$" {
-        pool                    = eduroam
+realm eduroam_flr {
+        auth_pool = eduroam_flr_pool
         nostrip
 }
