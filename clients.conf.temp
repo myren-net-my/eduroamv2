@@ -29,32 +29,31 @@ client localhost {
 #	add_cui = yes
 }
 
-client flr1 {
-	ipaddr          = 150.129.185.31
-	secret          = EDUROAM_SECRET
-        shortname     = flr1
-	nas_type       = other
-        virtual_server = eduroam
+client nro1.eduroam.my {
+        ipaddr          = nro1.eduroam.my
+        secret          = EDUROAM_SECRET
+        shortname      = flr1
+        nas_type       = other
+	virtual_server = eduroam
         Operator-Name  = 1nro1.eduroam.my
 }
 
-client flr2 {
-	ipaddr		= 119.40.121.26
+client nro2.eduroam.my {
+        ipaddr          = nro2.eduroam.my
         secret          = EDUROAM_SECRET
         shortname       = flr2
         nas_type        = other
-        virtual_server = eduroam
-        Operator-Name  = 1nro2.eduroam.my       
+	virtual_server = eduroam
+        Operator-Name  = 1nro2.eduroam.my
 }
 
-
-# Your Institution AP  example        #
-#client your-ap1 {
-#         ipaddr   =  AP_IP
-#	secret  =   EDUROAM_SECRET
+# Your Institution AP/controller  example #
+#client your-controller {
+#       ipaddr   =  AP_IP
+#	secret  =   rahsiaANDA
 #	nas_type = other
 #	Operator-Name = 1YOUR_REALM
 #	add_cui = yes
-#        require_message_authenticator = no
+#       require_message_authenticator = no
 #	shortname =  your-ap1
 #}
