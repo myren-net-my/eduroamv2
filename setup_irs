@@ -7,14 +7,16 @@ echo -n "2) Input your secret key (e.g. 'y0uRs3cr3t') : "
 read VAR_SECRET_KEY
 echo -n "3) Input your Freeradius 3 installation directory (left blank) : "
 read VAR_INSTALL_PATH
-echo -n "4) Input your host certificate private key file (e.g. '/etc/letsencrypt/live/idp.usm.my/privkey.pem') : "
+echo -n "4) Input your host certificate private key file (example: '/etc/letsencrypt/live/idp.usm.my/privkey.pem') : "
 read PRIV_KEY_FILE
-echo -n "5) Input your host certificate public key file (e.g. '/etc/letsencrypt/live/idp.usm.my/cert.pem') : "
+echo -n "5) Input your host certificate public key file (example: '/etc/letsencrypt/live/idp.usm.my/cert.pem') : "
 read PUBLIC_KEY_FILE
+echo -n "6) Input your host certificate ca key file (example: '/etc/letsencrypt/live/idp.usm.my/fullchain.pem') : "
+read CA_KEY_FILE
 
-echo -e "\nConfiguring clients.conf script....\n"
-#clients.conf setup
-awk -vVAR_INSTALL_PATH=$VAR_INSTALL_PATH -vPRIV_KEY_FILE=$PRIV_KEY_FILE -vPUBLIC_KEY_FILE=$PUBLIC_KEY_FILE '{gsub("VAR_INSTALL_PATH", VAR_INSTALL_PATH); gsub("PRIV_KEY_FILE", PRIV_KEY_FILE); gsub("PUBLIC_KEY_FILE", PUBLIC_KEY_FILE);print}' radiusd.conf.temp > radiusd.conf 
+echo -e "\nConfiguring eap modules script....\n"
+#eap setup
+awk -v -vPRIV_KEY_FILE=$PRIV_KEY_FILE -vPUBLIC_KEY_FILE=$PUBLIC_KEY_FILE -vCA_KEY_FILE=$CA_KEY_FILE '{gsub("PRIV_KEY_FILE", PRIV_KEY_FILE); gsub("PUBLIC_KEY_FILE", PUBLIC_KEY_FILE); gsub("CA_KEY_FILE", CA_KEY_FILE);print}' mods-available/eap.temp > mods-available/eap
 
 #clients.conf setup
 awk -vVAR_REALM=$VAR_REALM -vVAR_SECRET_KEY=$VAR_SECRET_KEY '{gsub("YOUR_REALM",VAR_REALM); gsub("EDUROAM_SECRET",VAR_SECRET_KEY); print}' clients.conf.temp > clients.conf
