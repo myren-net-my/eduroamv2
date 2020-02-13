@@ -248,20 +248,6 @@ max_requests = 16384
 #
 hostname_lookups = no
 
-# TLS
-tls {
-	certdir = ${confdir}/certs
-	private_key_file = PRIV_KEY_FILE
-	certificate_file = PUBLIC_KEY_FILE
-	ca_file = ${certdir}/ca-letsencrypt.pem
-	dh_file = ${certdir}/dh
-	random_file = /dev/urandom
-	fragment_size = 1024
-	include_length = yes
-	check_crl = no
-	cipher_list = "DEFAULT"
-}
-
 #
 #  Logging section.  The various "log_*" configuration items
 #  will eventually be moved here.
