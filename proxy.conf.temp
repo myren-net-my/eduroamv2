@@ -76,3 +76,7 @@ realm eduroam_flr {
         auth_pool = eduroam_flr_pool
         nostrip
 }
+realm "~.+$" {
+        pool = eduroam_flr_pool
+        nostrip
+}
